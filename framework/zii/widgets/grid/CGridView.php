@@ -379,6 +379,11 @@ class CGridView extends CBaseListView
 		$id=$this->getId();
 		foreach($this->columns as $i=>$column)
 		{
+	                if(is_null($column))
+	                {
+				unset($this->columns[$i]);
+				continue;
+            		}
 			if(is_string($column))
 				$column=$this->createDataColumn($column);
 			else
